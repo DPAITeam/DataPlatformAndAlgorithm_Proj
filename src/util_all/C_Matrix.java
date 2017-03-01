@@ -178,11 +178,11 @@ public class C_Matrix implements Inter_Matrix {
 		return this;
 	}
 	@Override
-	public Inter_Matrix inverse_Matrix(Inter_Matrix x) {
+	public Inter_Matrix inverse_Matrix() {
 		// TODO Auto-generated method stub
 		if(this.m != this.n)
 		{
-			System.out.println("this is not square matrix!!!");
+			System.out.println("error:this is not square matrix!!!");
 			return null;
 		}
 		Inter_Matrix tmp = new C_Matrix(this.n,2*this.m);
@@ -200,23 +200,37 @@ public class C_Matrix implements Inter_Matrix {
 				   next++; 
 					for(int k=0;k<tmp.getM();k++)
 				      tmp.setAij(tmp.getAij(i, k)+tmp.getAij(next, k), i, k);
+					System.out.print("change\n");
 			}
 			
+			if(Math.abs(tmp.getAij(i, i))<=eps)
+			{
+				System.out.println("error:this is not an inversed matrix!!!!");
+				return null;
+			}
 			if(Math.abs(tmp.getAij(i, i)-1.0)>eps)
+			{
+				double txp = tmp.getAij(i, i);
 				for(int j=0;j<tmp.getM();j++)
-					tmp.setAij(tmp.getAij(i, j)/tmp.getAij(i, i), i, j);
+					tmp.setAij(tmp.getAij(i, j)/txp, i, j);
+			}
+			
 			for(int j=i+1;j<this.n;j++)
+			{
+				double ctx = tmp.getAij(j, i);
 				for(int k=0;k<tmp.getM();k++)
-					tmp.setAij(tmp.getAij(j, k)-tmp.getAij(j, i)*tmp.getAij(i, k), j, k);
-				
+					tmp.setAij(tmp.getAij(j, k)-ctx*tmp.getAij(i, k), j, k);
+			}	
+		
 		}
 		
 		for(int i= this.n-1; i>=0;i--)
 		{
 			for(int j = i-1; j>=0; j--)
 			{
+				double xt = tmp.getAij(j, i);
 				for(int k=0;k<tmp.getM();k++)
-					tmp.setAij(tmp.getAij(j, k)-tmp.getAij(j, i)*tmp.getAij(j, k), j, k);
+					tmp.setAij(tmp.getAij(j, k)- xt*tmp.getAij(i, k), j, k);
 			}
 		}
 		
@@ -275,5 +289,16 @@ public class C_Matrix implements Inter_Matrix {
 	{
 	    this.a[i][j]= tp;
 	}
-
+	
+	@Override
+	public void print()
+	{
+		System.out.println("the inverse matrix is::");
+		for(int i=0;i<this.n;i++)
+		{
+			for(int j=0;j<this.m;j++)
+				System.out.print(this.a[i][j]+" ");
+			System.out.println("");
+		}
+	}
 }
