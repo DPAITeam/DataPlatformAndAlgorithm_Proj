@@ -30,7 +30,7 @@ public interface Inter_Matrix {
     public abstract Inter_Matrix transpose();
     
     //矩阵的逆
-    public abstract Inter_Matrix inverse_Matrix(Inter_Matrix x);
+    public abstract Inter_Matrix inverse_Matrix();
     
     //矩阵的分拆
     public abstract Inter_Matrix[] split_Matrix(int n,int m);
@@ -38,8 +38,18 @@ public interface Inter_Matrix {
     //矩阵的合并
     public abstract Inter_Matrix   combine_Matrix(Inter_Matrix[] x);
     
+    //获得矩阵的列数
 	public abstract int getM();
+	
+	//获得矩阵的列数
 	public abstract int getN();
+	
+	//获得矩阵的元素
 	public abstract double getAij(int i,int j);
+	
+	//设置矩阵中i,j元素的值为tp
 	public abstract void setAij(double tp, int i,int j);
+	
+	//打印矩阵
+	public abstract void print();
 }
