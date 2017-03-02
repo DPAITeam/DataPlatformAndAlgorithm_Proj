@@ -41,7 +41,7 @@ public interface Inter_Matrix {
     //获得矩阵的列数
 	public abstract int getM();
 	
-	//获得矩阵的列数
+	//获得矩阵的行数
 	public abstract int getN();
 	
 	//获得矩阵的元素
