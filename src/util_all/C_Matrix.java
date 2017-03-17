@@ -301,4 +301,9 @@ public class C_Matrix implements Inter_Matrix {
 			System.out.println("");
 		}
 	}
+	@Override
+	public double det() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

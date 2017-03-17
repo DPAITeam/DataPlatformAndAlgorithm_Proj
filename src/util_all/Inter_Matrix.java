@@ -32,6 +32,9 @@ public interface Inter_Matrix {
     //矩阵的逆
     public abstract Inter_Matrix inverse_Matrix();
     
+    //计算矩阵的行列式
+  	public abstract double det();
+    
     //矩阵的分拆
     public abstract Inter_Matrix[] split_Matrix(int n,int m);
     
@@ -52,4 +55,5 @@ public interface Inter_Matrix {
 	
 	//打印矩阵
 	public abstract void print();
+	
 }
