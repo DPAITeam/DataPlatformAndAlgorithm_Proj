@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pulldown>
+<class id="cluster">
+<key>cluster</key>
+<subclass id="knn">
+<key>knn</key>
+<register-address>cluster.knnImp</register-address>
+</subclass>
+<subclass id="svc">
+<key>svc</key>
+<register-address>cluster.knnImp</register-address>
+</subclass>
+</class>
+
+<class id="classify">
+<key>cluster</key>
+<subclass id="knear">
+<key>knear</key>
+<register-address>cluster.knnImp</register-address>
+</subclass>
+<subclass id="svm">
+<key>svm</key>
+<register-address>knnImp</register-address>
+</subclass>
+</class>
+
+</pulldown>
