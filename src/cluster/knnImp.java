@@ -5,11 +5,14 @@ import algorithmSuminter.Result;
 
 public class knnImp implements knn,Inter_Algorithm_Total
 {
+	private StringBuffer buf = null;
+	private int demission = 0;
     public knnImp()
     {
+    	
     	System.out.println("good");
     }
-
+    
 	@Override
 	public void train() {
 		// TODO Auto-generated method stub
@@ -27,4 +30,12 @@ public class knnImp implements knn,Inter_Algorithm_Total
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void init(StringBuffer buf, int demission) {
+		// TODO Auto-generated method stub
+		this.buf = buf;
+		this.demission =demission;
+	}
+
 }

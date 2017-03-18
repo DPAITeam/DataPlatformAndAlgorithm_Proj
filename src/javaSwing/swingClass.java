@@ -95,7 +95,6 @@ public class swingClass extends JFrame
 		te.setEditable(false);
 		bt.setEnabled(true);
 		te.setBackground(new Color(144,144,144));
-		
 		MouseAdapter ser = new MouseAdapterImp();
 		bt.addMouseListener(ser);
 		comboBox2.addItemListener(new SelectFileListener(bt,te,ser));

@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -35,6 +36,7 @@ public class MainView {
 	private JLabel idDemesionLable = null;
 	private JTextField idDemesion = null;
 	private ComboBoxList boxlist = null;
+	private File[] files=null;
 	public MainView() throws Exception
 	{
 		this.algorithmClass=new JComboBox();
@@ -110,6 +112,7 @@ public class MainView {
 		this.operationType.addItem("train");
 		
 		this.algorithmClass.addItemListener(new AlgorithmListener(boxlist,this.algorithmInClass));
+		
 		
 		MouseAdapter mouseada = new MouseAdapterImp();
 		this.upload.addMouseListener(mouseada);
@@ -196,6 +199,14 @@ public class MainView {
 
 	public void setBoxlist(ComboBoxList boxlist) {
 		this.boxlist = boxlist;
+	}
+
+	public File[] getFiles() {
+		return files;
+	}
+
+	public void setFiles(File[] files) {
+		this.files = files;
 	}
 	
 
